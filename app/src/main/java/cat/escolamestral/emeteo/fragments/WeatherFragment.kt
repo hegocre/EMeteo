@@ -1,10 +1,10 @@
 package cat.escolamestral.emeteo.fragments
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import cat.escolamestral.emeteo.R
@@ -72,12 +72,20 @@ class WeatherFragment : Fragment() {
                 "null"
             }
 
-            runOnUiThread { setData(Weather.parseString(data)) }
+            runOnUiThread {
+                if (data == "null") {
+                    showNoDataDialog()
+                } else {
+                    setData(Weather.parseString(data))
+                }
+            }
         }).start()
     }
 
     private fun downloadCharts(type: Int?) {
-        val dialog = AlertDialog.Builder(context).create()
+        if (context == null) return
+
+        val dialog = AlertDialog.Builder(requireContext()).create()
 
         val thread = Thread(Runnable {
             val data: Document = try {
@@ -153,6 +161,7 @@ class WeatherFragment : Fragment() {
     }
 
     private fun openChart(type: Int) {
+        if (context == null) return
         val names = mapOf(
             TEMPERATURE to getString(R.string.temperature),
             HUMIDITY to getString(R.string.humidity),
@@ -169,7 +178,7 @@ class WeatherFragment : Fragment() {
             WIND to if (prefs != null) prefs.getUserUnits()[windUnits] else getString(R.string.km_h)
         )
 
-        val builder = AlertDialog.Builder(activity)
+        val builder = AlertDialog.Builder(requireContext())
         val customLayout = View.inflate(activity, R.layout.dialog_charts, null)
 
         val chart = customLayout.findViewById<LineChart>(R.id.data_chart)
@@ -217,6 +226,13 @@ class WeatherFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    private fun showNoDataDialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.weather_no_data_available)
+            .setPositiveButton(R.string.retry) { _, _ -> downloadData(); downloadCharts(null) }
+            .show()
     }
 
     private fun Fragment?.runOnUiThread(action: () -> Unit) {

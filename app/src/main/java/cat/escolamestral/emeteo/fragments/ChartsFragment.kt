@@ -77,15 +77,18 @@ class ChartsFragment : Fragment() {
             }
 
             runOnUiThread {
-                when (url) {
-                    HISTORIC_MONTH_URL -> readHistoricMonthData(data)
-                    HISTORIC_YEAR_URL -> readHistoricYearData(data)
+                if (data != "null") {
+                    when (url) {
+                        HISTORIC_MONTH_URL -> readHistoricMonthData(data)
+                        HISTORIC_YEAR_URL -> readHistoricYearData(data)
+                    }
                 }
             }
         }).start()
     }
 
     private fun readHistoricYearData(data: String) {
+        if (data.isEmpty()) return
         val temperaturePointsList = ArrayList<Pair<Float, Float>>()
         val rainPointsList = ArrayList<Pair<Float, Float>>()
         val windPointsList = ArrayList<Pair<Float, Float>>()
@@ -148,6 +151,7 @@ class ChartsFragment : Fragment() {
     }
 
     private fun readHistoricMonthData(data: String) {
+        if (data.isEmpty()) return
         val temperaturePointsList = ArrayList<Pair<Float, Float>>()
         val rainPointsList = ArrayList<Pair<Float, Float>>()
         val windPointsList = ArrayList<Pair<Float, Float>>()

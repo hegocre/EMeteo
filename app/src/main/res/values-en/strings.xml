@@ -47,4 +47,6 @@
     <string name="wind">Wind</string>
     <string name="loading">Loading…</string>
     <string name="finder_no_data_available">No data available for the selected day.</string>
+    <string name="weather_no_data_available">Could not load data.</string>
+    <string name="retry">Retry</string>
 </resources>
