@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EMeteo</string>
+    <string name="weather">El temps</string>
+    <string name="finder">Cercador</string>
+    <string name="resumes">Històrics</string>
+    <string name="settings">Configuració</string>
+    <string name="about">Informació</string>
+    <string name="live_view">Vista en directe</string>
+    <string-array name="directions">
+        <item>N</item>
+        <item>NE</item>
+        <item>E</item>
+        <item>SE</item>
+        <item>S</item>
+        <item>SO</item>
+        <item>O</item>
+        <item>NO</item>
+    </string-array>
+    <string name="rate_app">Puntua l\'aplicació a Google Play</string>
+    <string name="contact_us">Contacta\'ns</string>
+    <string name="licenses">Llicències</string>
+    <string name="view_code_on_github">Veure el codi a GitHub</string>
+    <string name="visit_webpage">Visitar pàgina web</string>
+    <string name="send_email_using">Enviar mail amb…</string>
+    <string name="no_email_client_installed">No hi ha instal·lat un client de correu</string>
+    <string name="created_by">Creat per Hector Godoy</string>
+    <string name="general">General</string>
+    <string name="app_theme">Tema de l\'aplicació</string>
+    <string name="light">Clar</string>
+    <string name="dark">Fosc</string>
+    <string name="follow_system">Seguir sistema</string>
+    <string name="data">Dades</string>
+    <string name="inside_temperature">Temperatura interior</string>
+    <string name="inside_temperature_text">Mostra la temperatura a l\'interior de l\'escola</string>
+    <string name="temperature_units">Unitats de temperatura</string>
+    <string name="units">Unitats</string>
+    <string name="wind_units">Unitats de vent</string>
+    <string name="app_icon">Icona de l\'aplicació</string>
+    <string name="language">Idioma</string>
+    <string name="weather_updated">Actualitzat: %1$s</string>
+    <string name="tab_monthly">Mensuals</string>
+    <string name="tab_yearly">Anuals</string>
+    <string name="temperature">Temperatura</string>
+    <string name="humidity">Humitat</string>
+    <string name="precipitation">Precipitació</string>
+    <string name="wind">Vent</string>
+    <string name="loading">Carregant…</string>
+    <string name="finder_no_data_available">No hi ha dades disponibles per al dia seleccionat.</string>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="colorPrimary">#f44336</color>
+    <color name="colorPrimaryDark">#212121</color>
+
+    <color name="colorSecondary">#FFC107</color>
+    <color name="colorSecondaryDark">#FFE082</color>
+
+    <color name="colorBackground">#fff</color>
+    <color name="colorBackgroundDark">#121212</color>
+
+    <color name="colorBackgroundCard">#FFF</color>
+    <color name="colorBackgroundCardDark">#1C1C1C</color>
+
+    <color name="buttonBackgroundColor">#FFECB3</color>
+
+    <color name="lightBackground">#F2F2F2</color>
+
+    <color name="swipeRefreshBackgroundDark">#2E2E2E</color>
+
+    <color name="image_overlay">#A0000000</color>
+
+    <color name="transparent">#00FFFFFF</color>
+
+    <color name="textColorPrimary">#DD000000</color>
+    <color name="textColorPrimaryDark">#DDFFFFFF</color>
+</resources>

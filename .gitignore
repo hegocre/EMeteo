@@ -1,0 +1,13 @@
+*.iml
+.gradle
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+/app/src/androidTest/
+/app/src/test/
+local.properties
+README.md
+/app/release/

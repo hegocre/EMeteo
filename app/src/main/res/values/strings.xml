@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">EMeteo</string>
+
+    <string name="weather">Weather</string>
+    <string name="finder">Finder</string>
+    <string name="resumes">Historical</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="live_view">Live view</string>
+    <string-array name="directions">
+        <item>N</item>
+        <item>NE</item>
+        <item>E</item>
+        <item>SE</item>
+        <item>S</item>
+        <item>SW</item>
+        <item>W</item>
+        <item>NW</item>
+    </string-array>
+    <string name="rate_app">Rate this app on Google Play</string>
+    <string name="contact_us">Contact us</string>
+    <string name="licenses">Licenses</string>
+    <string name="view_code_on_github">View code on GitHub</string>
+    <string name="visit_webpage">Visit web page</string>
+    <string name="send_email_using">Send email using…</string>
+    <string name="no_email_client_installed">No email client installed</string>
+    <string name="created_by">Created by Hector Godoy</string>
+    <string name="app_icon">App icon</string>
+    <string name="general">General</string>
+    <string name="app_theme">App theme</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+    <string name="follow_system">Follow system</string>
+    <string name="data">Data</string>
+    <string name="inside_temperature">Indoor temperature</string>
+    <string name="inside_temperature_text">Show school\'s inside temperature</string>
+    <string name="temperature_units">Temperature units</string>
+    <string name="celsius" translatable="false">Celsius</string>
+    <string name="fahrenheits" translatable="false">Fahrenheits</string>
+    <string name="units">Units</string>
+    <string name="wind_units">Wind units</string>
+    <string name="km_h" translatable="false">Km/h</string>
+    <string name="m_s" translatable="false">m/s</string>
+    <string name="mph" translatable="false">mph</string>
+    <string name="language">Language</string>
+    <string name="spanish" translatable="false">Español</string>
+    <string name="catalan" translatable="false">Català</string>
+    <string name="english" translatable="false">English</string>
+    <string name="weather_humidity" translatable="false">%1$d%%</string>
+    <string name="weather_temperature" translatable="false">%1$.1fº</string>
+    <string name="weather_wind_speed_kmh" translatable="false">%1$.1f Km/h</string>
+    <string name="weather_wind_speed_ms" translatable="false">%1$.1f m/s</string>
+    <string name="weather_wind_speed_mph" translatable="false">%1$.1f mph</string>
+    <string name="weather_temperature_min_max" translatable="false">▼%1$.1fº - ▲%2$.1fº</string>
+    <string name="weather_humidity_min_max" translatable="false">▼%1$d %% - ▲%2$d %%</string>
+    <string name="weather_rain" translatable="false">%1$.1f mm</string>
+    <string name="weather_updated">Updated: %1$s</string>
+    <string name="tab_monthly">This month</string>
+    <string name="tab_yearly">This year</string>
+    <string name="temperature">Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="precipitation">Precipitation</string>
+    <string name="wind">Wind</string>
+    <string name="loading">Loading…</string>
+    <string name="percent" translatable="false">%</string>
+    <string name="mm" translatable="false">mm</string>
+    <string name="finder_no_data_available">No data available for the selected day.</string>
+</resources>

@@ -1,0 +1,67 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="@string/general">
+
+        <ListPreference
+            app:allowDividerBelow="false"
+            app:defaultValue="follow_system"
+            app:entries="@array/theme_entries"
+            app:entryValues="@array/theme_values"
+            app:iconSpaceReserved="false"
+            app:key="app_theme"
+            app:title="@string/app_theme"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:allowDividerBelow="false"
+            app:defaultValue="follow_system"
+            app:entries="@array/language_entries"
+            app:entryValues="@array/language_values"
+            app:iconSpaceReserved="false"
+            app:key="app_language"
+            app:title="@string/language"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="@string/data">
+
+        <SwitchPreference
+            app:allowDividerBelow="false"
+            app:defaultValue="false"
+            app:iconSpaceReserved="false"
+            app:key="show_inside_temperature"
+            app:summary="@string/inside_temperature_text"
+            app:title="@string/inside_temperature" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="@string/units">
+
+        <ListPreference
+            app:defaultValue="celsius"
+            app:entries="@array/temperature_units_entries"
+            app:entryValues="@array/temperature_units_values"
+            app:iconSpaceReserved="false"
+            app:key="temperature_units"
+            app:title="@string/temperature_units"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="km_h"
+            app:entries="@array/wind_units_entries"
+            app:entryValues="@array/wind_units_values"
+            app:iconSpaceReserved="false"
+            app:key="wind_units"
+            app:title="@string/wind_units"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EMeteo</string>
+    <string name="weather">El tiempo</string>
+    <string name="finder">Buscador</string>
+    <string name="resumes">Históricos</string>
+    <string name="settings">Configuración</string>
+    <string name="about">Información</string>
+    <string name="live_view">Vista en directo</string>
+    <string-array name="directions">
+        <item>N</item>
+        <item>NE</item>
+        <item>E</item>
+        <item>SE</item>
+        <item>S</item>
+        <item>SO</item>
+        <item>O</item>
+        <item>NO</item>
+    </string-array>
+    <string name="rate_app">Puntúa la aplicación en Google Play</string>
+    <string name="contact_us">Contactanos</string>
+    <string name="licenses">Licencias</string>
+    <string name="view_code_on_github">Ver código en GitHub</string>
+    <string name="visit_webpage">Visitar página web</string>
+    <string name="send_email_using">Enviar mail con…</string>
+    <string name="no_email_client_installed">No hay instalado un cliente de correo</string>
+    <string name="created_by">Creado por Hector Godoy</string>
+    <string name="general">General</string>
+    <string name="inside_temperature">Temperatura interior</string>
+    <string name="light">Claro</string>
+    <string name="dark">Oscuro</string>
+    <string name="follow_system">Seguir sistema</string>
+    <string name="data">Datos</string>
+    <string name="app_theme">Tema de la aplicación</string>
+    <string name="inside_temperature_text">Muestra la temperatura en el interior de la escuela</string>
+    <string name="temperature_units">Unidades de temperatura</string>
+    <string name="units">Unidades</string>
+    <string name="wind_units">Unidades de viento</string>
+    <string name="app_icon">Icono de la aplicación</string>
+    <string name="language">Idioma</string>
+    <string name="weather_updated">Actualizado: %1$s</string>
+    <string name="tab_monthly">Mensuales</string>
+    <string name="tab_yearly">Anuales</string>
+    <string name="temperature">Temperatura</string>
+    <string name="humidity">Humedad</string>
+    <string name="precipitation">Precipitación</string>
+    <string name="wind">Viento</string>
+    <string name="loading">Cargando…</string>
+    <string name="finder_no_data_available">No hay datos disponibles para el día seleccionado.</string>
+</resources>
