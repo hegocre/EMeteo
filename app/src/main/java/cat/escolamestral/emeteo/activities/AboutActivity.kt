@@ -8,6 +8,7 @@ import android.view.MenuItem
 import cat.escolamestral.emeteo.R
 import cat.escolamestral.emeteo.databinding.ActivityAboutBinding
 import com.google.android.material.snackbar.Snackbar
+import de.psdev.licensesdialog.LicensesDialog
 
 class AboutActivity : BaseActivity() {
 
@@ -54,6 +55,13 @@ class AboutActivity : BaseActivity() {
                 ).show()
             }
 
+        }
+
+        binding.buttonLicenses.setOnClickListener {
+            LicensesDialog.Builder(this)
+                .setNotices(R.raw.notices)
+                .build()
+                .show()
         }
 
         binding.buttonGithub.setOnClickListener {

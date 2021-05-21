@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notices>
+    <notice>
+        <name>Kotlin</name>
+        <url>https://github.com/JetBrains/kotlin</url>
+        <copyright>Copyright 2000-2020 JetBrains s.r.o. and Kotlin Programming Language
+            contributors.
+        </copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>Android Jetpack</name>
+        <url>https://github.com/androidx/androidx</url>
+        <copyright />
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>Material Components for Android</name>
+        <url>https://github.com/material-components/material-components-android</url>
+        <copyright />
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>MaterialDrawer</name>
+        <url>https://github.com/mikepenz/MaterialDrawer</url>
+        <copyright>Copyright 2021 Mike Penz</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>jsoup</name>
+        <url>https://github.com/jhy/jsoup</url>
+        <copyright>Copyright (c) 2009-2021 Jonathan Hedley</copyright>
+        <license>MIT License</license>
+    </notice>
+    <notice>
+        <name>Picasso</name>
+        <url>https://github.com/square/picasso</url>
+        <copyright>Copyright 2013 Square, Inc.</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>MPAndroidChart</name>
+        <url>https://github.com/PhilJay/MPAndroidChart/</url>
+        <copyright>Copyright 2020 Philipp Jahoda</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>Phosphor Icons</name>
+        <url>https://phosphoricons.com/</url>
+        <copyright>Copyright (c) 2020 Phosphor Icons</copyright>
+        <license>MIT License</license>
+    </notice>
+    <notice>
+        <name>Licenses Dialog</name>
+        <url>https://github.com/PSDev/LicensesDialog</url>
+        <copyright>Copyright 2013 Philip Schiffer</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+</notices>
