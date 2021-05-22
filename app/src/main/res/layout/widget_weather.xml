@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ic_widget_layout_background"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,UseCompatTextViewDrawableXml">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_widget_title_background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:padding="8dp"
+            android:text="@string/app_name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/refresh_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_arrows_clockwise"
+            android:tint="@color/white"
+            tools:ignore="UseAppTint" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/temperature_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_thermometer_simple"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
+            android:text="0º"
+            android:textColor="@color/black"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/humidity_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_drop"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
+            android:text="0%"
+            android:textColor="@color/black"
+            android:textSize="19sp" />
+
+        <!--TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="0 mm"
+            android:gravity="center"
+            tools:ignore="HardcodedText"
+            android:id="@+id/rain_text"
+            android:drawableTop="@drawable/ic_cloud_rain"
+            android:scaleX="0.75"
+            android:textSize="19sp"
+            android:drawablePadding="10dp"
+            android:scaleY="0.75"/-->
+
+        <TextView
+            android:id="@+id/wind_speed_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_wind"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
+            android:text="0 Km/h"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/wind_direction_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_compass"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
+            android:text="N"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</LinearLayout>
