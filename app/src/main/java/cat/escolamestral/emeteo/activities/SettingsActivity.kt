@@ -54,7 +54,7 @@ class SettingsActivity : BaseActivity(), SharedPreferences.OnSharedPreferenceCha
                     languageChanged = true
                     this.recreate()
                 }
-                "wind_units", "temperature_units" -> unitsChanged = true
+                "wind_units", "temperature_units", "show_inside_temperature" -> unitsChanged = true
                 else -> {
                 }
             }

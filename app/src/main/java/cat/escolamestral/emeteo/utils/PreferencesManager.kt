@@ -54,6 +54,10 @@ class PreferencesManager private constructor(context: Context) {
         return if (units == "km_h") WIND_KMH else if (units == "m_s") WIND_MS else WIND_MPH
     }
 
+    fun showIndoorTemperature(): Boolean {
+        return _sharedPrefs.getBoolean("show_inside_temperature", false)
+    }
+
     companion object {
         private var instance: PreferencesManager? = null
 

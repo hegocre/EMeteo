@@ -123,7 +123,13 @@ class WeatherFragment : Fragment() {
         val prefs = PreferencesManager.getPreferencesInstance(requireContext())
 
         with(weatherData) {
-            binding.temperatureText.text = getString(R.string.weather_temperature, temperature)
+            binding.temperatureText.text = if (prefs.showIndoorTemperature()) String.format(
+                "%s | %s",
+                getString(R.string.weather_temperature, temperature),
+                getString(R.string.weather_temperature, insideTemperature)
+            ) else getString(R.string.weather_temperature, temperature)
+
+
             binding.temperatureMinMaxText.text =
                 getString(R.string.weather_temperature_min_max, minTemperature, maxTemperature)
 
