@@ -1,13 +1,13 @@
 package cat.escolamestral.emeteo.services
 
 import android.app.PendingIntent
-import android.app.Service
 import android.appwidget.AppWidgetManager
+import android.content.Context
 import android.content.Intent
 import android.os.Handler
-import android.os.IBinder
 import android.os.Looper
 import android.widget.RemoteViews
+import androidx.core.app.JobIntentService
 import cat.escolamestral.emeteo.R
 import cat.escolamestral.emeteo.utils.PreferencesManager
 import cat.escolamestral.emeteo.utils.Weather
@@ -15,14 +15,14 @@ import cat.escolamestral.emeteo.widgets.WeatherWidgetProvider
 import org.jsoup.Jsoup
 
 
-class UpdateWeatherWidgetService : Service() {
+class UpdateWeatherWidgetService : JobIntentService() {
 
     private var i: Intent? = null
     private var started = false
     private val h = Handler(Looper.getMainLooper())
     lateinit var r: Runnable
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    override fun onHandleWork(intent: Intent) {
         if (started) h.removeCallbacks(r)
 
         started = true
@@ -31,8 +31,6 @@ class UpdateWeatherWidgetService : Service() {
             downloadData()
         }
         h.post(r)
-
-        return super.onStartCommand(intent, flags, startId)
     }
 
     override fun onDestroy() {
@@ -147,10 +145,12 @@ class UpdateWeatherWidgetService : Service() {
 
     }
 
-    override fun onBind(intent: Intent?): IBinder? = null
-
     companion object {
         private const val WEATHER_URL = "https://www.escolamestral.cat/meteo/meteoclimatic.htm"
+
+        fun enqueueWork(context: Context, work: Intent) {
+            enqueueWork(context, UpdateWeatherWidgetService::class.java, 1, work)
+        }
     }
 
 }

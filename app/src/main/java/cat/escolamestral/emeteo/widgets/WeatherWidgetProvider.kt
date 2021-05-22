@@ -22,7 +22,7 @@ class WeatherWidgetProvider : AppWidgetProvider() {
 
             val intent = Intent(context.applicationContext, UpdateWeatherWidgetService::class.java)
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, allWidgetIds)
-            context.startService(intent)
+            UpdateWeatherWidgetService.enqueueWork(context, intent)
         }
     }
 }
