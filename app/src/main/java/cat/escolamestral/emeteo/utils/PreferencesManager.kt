@@ -27,6 +27,17 @@ class PreferencesManager private constructor(context: Context) {
         return userUnits
     }
 
+    fun getLiveViewUrl(): String {
+        return when (_sharedPrefs.getString("live_view_quality", "standard")) {
+            "high" -> STREAM_LIVE_URL_HQ
+            else -> STREAM_LIVE_URL
+        }
+    }
+
+    fun playLiveViewAudio(): Boolean {
+        return _sharedPrefs.getBoolean("play_liveview_audio", false)
+    }
+
     fun getSelectedLocale(): Locale {
         val language = _sharedPrefs.getString("app_language", "follow_system")!!
         ConfigurationCompat.getLocales(Resources.getSystem().configuration)[0]
@@ -78,5 +89,10 @@ class PreferencesManager private constructor(context: Context) {
         const val WIND_KMH = 0
         const val WIND_MS = 1
         const val WIND_MPH = 2
+
+        private const val STREAM_LIVE_URL =
+            "rtsp://exterior.escolamestral.cat:554/h264Preview_01_sub"
+        private const val STREAM_LIVE_URL_HQ =
+            "rtsp://exterior.escolamestral.cat:554/h264Preview_01_main"
     }
 }

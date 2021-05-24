@@ -60,6 +60,30 @@
             app:iconSpaceReserved="false"
             app:key="wind_units"
             app:title="@string/wind_units"
+            app:allowDividerBelow="false"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="@string/live_view">
+
+        <SwitchPreference
+            app:defaultValue="false"
+            app:iconSpaceReserved="false"
+            app:key="play_liveview_audio"
+            app:summary="@string/settings_play_audio_summary"
+            app:title="@string/play_audio" />
+
+        <ListPreference
+            app:allowDividerBelow="false"
+            app:defaultValue="standard"
+            app:entries="@array/liveview_quality_entries"
+            app:entryValues="@array/liveview_quality_values"
+            app:iconSpaceReserved="false"
+            app:key="live_view_quality"
+            app:title="@string/quality"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>

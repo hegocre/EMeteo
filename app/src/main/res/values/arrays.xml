@@ -49,5 +49,14 @@
         <item>follow_system</item>
     </string-array>
 
+    <string-array name="liveview_quality_entries">
+        <item>@string/standard</item>
+        <item>@string/high</item>
+    </string-array>
+
+    <string-array name="liveview_quality_values">
+        <item>standard</item>
+        <item>high</item>
+    </string-array>
 
 </resources>

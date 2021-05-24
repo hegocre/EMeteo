@@ -11,8 +11,10 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.MenuItem
+import android.view.SurfaceView
 import android.view.View
-import android.widget.ImageView
+import android.widget.FrameLayout
+import android.widget.ProgressBar
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -24,13 +26,11 @@ import cat.escolamestral.emeteo.R
 import cat.escolamestral.emeteo.databinding.ActivityHomeBinding
 import cat.escolamestral.emeteo.utils.ContextUtils
 import cat.escolamestral.emeteo.utils.PreferencesManager
+import cat.escolamestral.emeteo.utils.RtspStreamClient
 import com.mikepenz.materialdrawer.holder.ImageHolder
 import com.mikepenz.materialdrawer.model.DividerDrawerItem
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.nameRes
-import com.squareup.picasso.MemoryPolicy
-import com.squareup.picasso.NetworkPolicy
-import com.squareup.picasso.Picasso
 import java.util.*
 
 class HomeActivity : BaseActivity() {
@@ -42,6 +42,8 @@ class HomeActivity : BaseActivity() {
     private var fragments: Array<Fragment?> = arrayOfNulls(FRAGMENT_COUNT)
 
     private var showingFragment = WEATHER_FRAGMENT
+
+    private var liveViewDialog: AlertDialog? = null
 
     private val startSettingsForResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
@@ -267,18 +269,48 @@ class HomeActivity : BaseActivity() {
     private fun loadLiveImage() {
         val builder = AlertDialog.Builder(this@HomeActivity)
         val customLayout = View.inflate(this@HomeActivity, R.layout.dialog_live_view, null)
-        val viewer = customLayout.findViewById<ImageView>(R.id.webcam_view)
-        Picasso.get().load(STREAM_URL).memoryPolicy(MemoryPolicy.NO_CACHE)
-            .networkPolicy(NetworkPolicy.NO_CACHE).into(viewer)
+
+        val layout = customLayout.findViewById<FrameLayout>(R.id.dialog_live_view)
+        //We use post to wait for the layout to be drawn, as having width=match_parent
+        //initially returns 0
+        layout.post {
+            layout.layoutParams.height = layout.width * 3 / 4
+        }
+
+        val viewer = customLayout.findViewById<SurfaceView>(R.id.surfaceView)
+        val progressBar = customLayout.findViewById<ProgressBar>(R.id.progress_bar)
+
+        val prefs = PreferencesManager.getPreferencesInstance(this)
+        val rtspStreamClient = RtspStreamClient(
+            viewer,
+            prefs.getLiveViewUrl(),
+            "mestral",
+            "mestral",
+            playAudio = prefs.playLiveViewAudio(),
+            progressBar = progressBar
+        )
+
+        rtspStreamClient.start()
+
+        builder.setOnCancelListener {
+            rtspStreamClient.stop()
+            liveViewDialog = null
+        }
+
         builder.setView(customLayout)
-        builder.create().show()
+        liveViewDialog = builder.create()
+        liveViewDialog?.show()
+    }
+
+    override fun onDestroy() {
+        liveViewDialog?.cancel()
+        liveViewDialog = null
+        super.onDestroy()
     }
 
     companion object {
         private const val WEATHER_FRAGMENT = 0
         private const val CHART_FRAGMENT = 1
         private const val FRAGMENT_COUNT = CHART_FRAGMENT + 1
-
-        private const val STREAM_URL = "https://escolamestral.cat/meteo/webcam.jpg"
     }
 }

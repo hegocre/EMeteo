@@ -49,4 +49,9 @@
     <string name="finder_no_data_available">No hi ha dades disponibles per al dia seleccionat.</string>
     <string name="weather_no_data_available">No s\'han pogut carregar les dades.</string>
     <string name="retry">Reintentar</string>
+    <string name="play_audio">Reproduir audio</string>
+    <string name="settings_play_audio_summary">Reproduir audio a la vista en directe</string>
+    <string name="quality">Qualitat</string>
+    <string name="high">Alta</string>
+    <string name="standard">Estàndard (recomanat)</string>
 </resources>

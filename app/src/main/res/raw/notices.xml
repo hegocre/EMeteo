@@ -33,9 +33,9 @@
         <license>MIT License</license>
     </notice>
     <notice>
-        <name>Picasso</name>
-        <url>https://github.com/square/picasso</url>
-        <copyright>Copyright 2013 Square, Inc.</copyright>
+        <name>rtsp-client-android</name>
+        <url>https://github.com/alexeyvasilyev/rtsp-client-android</url>
+        <copyright>Copyright 2020-2021 Alexey Vasilyev</copyright>
         <license>Apache Software License 2.0</license>
     </notice>
     <notice>
