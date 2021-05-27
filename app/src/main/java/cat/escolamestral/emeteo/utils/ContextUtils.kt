@@ -31,16 +31,6 @@ class ContextUtils(base: Context) : ContextWrapper(base) {
             return ContextUtils(context)
         }
 
-        @Suppress("DEPRECATION")
-        fun updateConfigurationLocale(newLocale: Locale, configuration: Configuration?) {
-            if (configuration == null) return
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                val localeList = LocaleList(newLocale)
-                LocaleList.setDefault(localeList)
-                configuration.setLocales(localeList)
-            } else configuration.locale = newLocale
-        }
-
         fun isDarkThemeOn(c: Context): Boolean {
             return c.resources.configuration.uiMode and
                     Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES

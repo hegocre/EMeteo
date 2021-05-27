@@ -74,8 +74,6 @@
     <string name="widget_wind_speed_ms" translatable="false">%1$.0f m/s</string>
     <string name="widget_wind_speed_mph" translatable="false">%1$.0f mph</string>
     <string name="widget_rain" translatable="false">%1$.0f mm</string>
-    <string name="play_audio">Play audio</string>
-    <string name="settings_play_audio_summary">Play audio on live view</string>
     <string name="quality">Quality</string>
     <string name="high">High</string>
     <string name="standard">Standard (recommended)</string>

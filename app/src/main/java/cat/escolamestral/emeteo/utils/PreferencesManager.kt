@@ -34,10 +34,6 @@ class PreferencesManager private constructor(context: Context) {
         }
     }
 
-    fun playLiveViewAudio(): Boolean {
-        return _sharedPrefs.getBoolean("play_liveview_audio", false)
-    }
-
     fun getSelectedLocale(): Locale {
         val language = _sharedPrefs.getString("app_language", "follow_system")!!
         ConfigurationCompat.getLocales(Resources.getSystem().configuration)[0]
@@ -91,8 +87,8 @@ class PreferencesManager private constructor(context: Context) {
         const val WIND_MPH = 2
 
         private const val STREAM_LIVE_URL =
-            "rtsp://exterior.escolamestral.cat:554/h264Preview_01_sub"
+            "http://exterior.escolamestral.cat:8083/stream/emeteo/channel/1/hls/live/index.m3u8"
         private const val STREAM_LIVE_URL_HQ =
-            "rtsp://exterior.escolamestral.cat:554/h264Preview_01_main"
+            "http://exterior.escolamestral.cat:8083/stream/emeteo/channel/0/hls/live/index.m3u8"
     }
 }

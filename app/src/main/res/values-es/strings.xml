@@ -49,8 +49,6 @@
     <string name="finder_no_data_available">No hay datos disponibles para el día seleccionado.</string>
     <string name="weather_no_data_available">No se han podido cargar los datos.</string>
     <string name="retry">Reintentar</string>
-    <string name="play_audio">Reproducir audio</string>
-    <string name="settings_play_audio_summary">Reproducir audio en la vista en directo</string>
     <string name="quality">Calidad</string>
     <string name="high">Alta</string>
     <string name="standard">Estándar (recomendado)</string>

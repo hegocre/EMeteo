@@ -1,7 +1,6 @@
 package cat.escolamestral.emeteo.activities
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
@@ -11,13 +10,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.MenuItem
-import android.view.SurfaceView
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.ProgressBar
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -26,7 +24,10 @@ import cat.escolamestral.emeteo.R
 import cat.escolamestral.emeteo.databinding.ActivityHomeBinding
 import cat.escolamestral.emeteo.utils.ContextUtils
 import cat.escolamestral.emeteo.utils.PreferencesManager
-import cat.escolamestral.emeteo.utils.RtspStreamClient
+import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.ui.PlayerView
 import com.mikepenz.materialdrawer.holder.ImageHolder
 import com.mikepenz.materialdrawer.model.DividerDrawerItem
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
@@ -44,6 +45,7 @@ class HomeActivity : BaseActivity() {
     private var showingFragment = WEATHER_FRAGMENT
 
     private var liveViewDialog: AlertDialog? = null
+    private var dialogShowing = false
 
     private val startSettingsForResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
@@ -90,6 +92,10 @@ class HomeActivity : BaseActivity() {
             com.mikepenz.materialdrawer.R.string.material_drawer_open,
             com.mikepenz.materialdrawer.R.string.material_drawer_close
         )
+
+        dialogShowing = savedInstanceState?.getBoolean("dialog_showing", false) ?: false
+        if (dialogShowing)
+            loadLiveImage()
 
         createDrawer(savedInstanceState)
     }
@@ -224,6 +230,7 @@ class HomeActivity : BaseActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt("showing_fragment", showingFragment)
+        outState.putBoolean("dialog_showing", dialogShowing)
         binding.slider.saveInstanceState(outState)
     }
 
@@ -268,38 +275,49 @@ class HomeActivity : BaseActivity() {
 
     private fun loadLiveImage() {
         val builder = AlertDialog.Builder(this@HomeActivity)
-        val customLayout = View.inflate(this@HomeActivity, R.layout.dialog_live_view, null)
-
-        val layout = customLayout.findViewById<FrameLayout>(R.id.dialog_live_view)
-        //We use post to wait for the layout to be drawn, as having width=match_parent
-        //initially returns 0
-        layout.post {
-            layout.layoutParams.height = layout.width * 3 / 4
-        }
-
-        val viewer = customLayout.findViewById<SurfaceView>(R.id.surfaceView)
-        val progressBar = customLayout.findViewById<ProgressBar>(R.id.progress_bar)
-
         val prefs = PreferencesManager.getPreferencesInstance(this)
-        val rtspStreamClient = RtspStreamClient(
-            viewer,
-            prefs.getLiveViewUrl(),
-            "mestral",
-            "mestral",
-            playAudio = prefs.playLiveViewAudio(),
-            progressBar = progressBar
-        )
 
-        rtspStreamClient.start()
+        val layout =
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) R.layout.dialog_live_view
+            else R.layout.dialog_live_view_landscape
+        val customLayout = View.inflate(this@HomeActivity, layout, null)
+
+        val playerView = customLayout.findViewById<PlayerView>(R.id.player_view)
+        val loadingProgressBar = customLayout.findViewById<ProgressBar>(R.id.loading)
+
+        val player = SimpleExoPlayer.Builder(this).build()
+        player.setMediaItem(MediaItem.fromUri(prefs.getLiveViewUrl()))
+        playerView.player = player
+
+        player.playWhenReady = true
+        player.addListener(object : Player.Listener {
+            override fun onIsPlayingChanged(isPlaying: Boolean) {
+                if (isPlaying)
+                    loadingProgressBar.visibility = View.GONE
+                else
+                    loadingProgressBar.visibility = View.VISIBLE
+
+                super.onIsPlayingChanged(isPlaying)
+            }
+        })
+        player.prepare()
 
         builder.setOnCancelListener {
-            rtspStreamClient.stop()
+            player.stop()
+            dialogShowing = false
             liveViewDialog = null
         }
 
         builder.setView(customLayout)
         liveViewDialog = builder.create()
+
+        dialogShowing = true
         liveViewDialog?.show()
+        playerView.post {
+            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                liveViewDialog?.window?.setLayout(playerView.width - 40, playerView.height)
+            }
+        }
     }
 
     override fun onDestroy() {
