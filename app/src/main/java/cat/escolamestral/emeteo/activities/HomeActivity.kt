@@ -92,6 +92,7 @@ class HomeActivity : BaseActivity() {
             com.mikepenz.materialdrawer.R.string.material_drawer_open,
             com.mikepenz.materialdrawer.R.string.material_drawer_close
         )
+        binding.root.addDrawerListener(actionBarDrawerToggle)
 
         dialogShowing = savedInstanceState?.getBoolean("dialog_showing", false) ?: false
         if (dialogShowing)
@@ -326,6 +327,11 @@ class HomeActivity : BaseActivity() {
         liveViewDialog?.cancel()
         liveViewDialog = null
         super.onDestroy()
+    }
+
+    override fun onResume() {
+        actionBarDrawerToggle.syncState()
+        super.onResume()
     }
 
     companion object {
