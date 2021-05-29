@@ -155,6 +155,7 @@ class HomeActivity : BaseActivity() {
                 when (drawerItem.identifier) {
                     1L -> {
                         supportActionBar?.title = getString(R.string.weather)
+                        binding.appBar.setExpanded(true)
                         showFragment(WEATHER_FRAGMENT)
                         binding.appBar.outlineProvider = oldOutlineProvider
                     }
