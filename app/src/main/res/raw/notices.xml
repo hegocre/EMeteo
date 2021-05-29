@@ -11,7 +11,13 @@
     <notice>
         <name>Android Jetpack</name>
         <url>https://github.com/androidx/androidx</url>
-        <copyright />
+        <copyright>Copyright 2020-2021 Google LLC</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>ExoPlayer</name>
+        <url>https://github.com/google/ExoPlayer</url>
+        <copyright>Copyright 2020-2021 Google LLC</copyright>
         <license>Apache Software License 2.0</license>
     </notice>
     <notice>
@@ -31,12 +37,6 @@
         <url>https://github.com/jhy/jsoup</url>
         <copyright>Copyright (c) 2009-2021 Jonathan Hedley</copyright>
         <license>MIT License</license>
-    </notice>
-    <notice>
-        <name>rtsp-client-android</name>
-        <url>https://github.com/alexeyvasilyev/rtsp-client-android</url>
-        <copyright>Copyright 2020-2021 Alexey Vasilyev</copyright>
-        <license>Apache Software License 2.0</license>
     </notice>
     <notice>
         <name>MPAndroidChart</name>
