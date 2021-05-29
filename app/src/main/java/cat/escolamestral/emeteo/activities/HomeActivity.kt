@@ -175,9 +175,10 @@ class HomeActivity : BaseActivity() {
                 }
                 false
             }
-
-            actionBarDrawerToggle.isDrawerSlideAnimationEnabled = false
+            multiSelect = false
         }
+
+        actionBarDrawerToggle.isDrawerSlideAnimationEnabled = true
 
         if (savedInstanceState == null) {
             binding.slider.setSelection(1, true)
