@@ -219,8 +219,7 @@ class WeatherFragment : Fragment() {
             chart,
             names[type].toString(),
             entries,
-            labels.toTypedArray(),
-            animate = true
+            labels.toTypedArray()
         )
 
         builder.setView(customLayout)

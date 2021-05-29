@@ -3,7 +3,6 @@ package cat.escolamestral.emeteo.utils
 import android.content.Context
 import androidx.core.content.ContextCompat
 import cat.escolamestral.emeteo.R
-import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
@@ -19,7 +18,6 @@ class LineChartUtils {
             entries: ArrayList<Entry>,
             xLabels: Array<String>? = null,
             yLabels: Array<String>? = null,
-            animate: Boolean = false,
             forceLabelCount: Boolean = false
         ) {
 
@@ -59,8 +57,6 @@ class LineChartUtils {
 
             if (forceLabelCount)
                 chart.xAxis.setLabelCount(entries.size, true)
-
-            if (animate) chart.animateX(250, Easing.Linear)
         }
     }
 }
