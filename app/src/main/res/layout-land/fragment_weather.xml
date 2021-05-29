@@ -45,10 +45,11 @@
                         android:layout_height="match_parent"
                         android:baselineAligned="false"
                         android:orientation="horizontal"
+                        android:id="@+id/weather_layout"
                         android:padding="16dp">
 
                         <LinearLayout
-                            android:id="@+id/weather_layout"
+                            android:id="@+id/weather1_layout"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -252,5 +253,42 @@
         </ScrollView>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/no_connection_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="?actionBarSize"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/weather_no_data_available"
+            android:src="@drawable/ic_cloud_slash"
+            app:tint="?android:textColorSecondary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_no_data_available"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/no_connection_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="?selectableItemBackground"
+            android:text="@string/retry"
+            android:textColor="?android:textColorSecondary" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

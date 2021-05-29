@@ -30,6 +30,7 @@ class WeatherFragment : Fragment() {
     private val prefs = PreferencesManager.getPreferencesInstanceNoContext()
     private var temperatureUnits = PreferencesManager.TEMPERATURE_CELSIUS
     private var windUnits = PreferencesManager.WIND_KMH
+    private var dataLoaded = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,6 +57,13 @@ class WeatherFragment : Fragment() {
         if (prefs != null) {
             temperatureUnits = prefs.getTemperatureUnits()
             windUnits = prefs.getWindUnits()
+        }
+
+        binding.noConnectionButton.setOnClickListener {
+            binding.noConnectionLayout.visibility = View.GONE
+            binding.swipeRefreshLayout.isRefreshing = true
+            downloadData()
+            downloadCharts(null)
         }
 
         downloadData()
@@ -157,6 +165,7 @@ class WeatherFragment : Fragment() {
         }
 
         binding.weatherLayout.visibility = View.VISIBLE
+        dataLoaded = true
     }
 
     private fun getChart(type: Int) {
@@ -234,10 +243,20 @@ class WeatherFragment : Fragment() {
     }
 
     private fun showNoDataDialog() {
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.weather_no_data_available)
-            .setPositiveButton(R.string.retry) { _, _ -> downloadData(); downloadCharts(null) }
-            .show()
+        binding.swipeRefreshLayout.isRefreshing = false
+        if (!dataLoaded) {
+            binding.weatherLoading.visibility = View.GONE
+            binding.noConnectionLayout.visibility = View.VISIBLE
+        } else {
+            AlertDialog.Builder(requireContext())
+                .setTitle(R.string.weather_no_data_available)
+                .setPositiveButton(R.string.retry) { _, _ ->
+                    downloadData()
+                    downloadCharts(null)
+                    binding.swipeRefreshLayout.isRefreshing = true
+                }
+                .show()
+        }
     }
 
     private fun Fragment?.runOnUiThread(action: () -> Unit) {

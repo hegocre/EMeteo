@@ -235,4 +235,41 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <LinearLayout
+        android:id="@+id/no_connection_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="?actionBarSize"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:contentDescription="@string/weather_no_data_available"
+            android:src="@drawable/ic_cloud_slash"
+            app:tint="?android:textColorSecondary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_no_data_available"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/no_connection_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="?selectableItemBackground"
+            android:text="@string/retry"
+            android:textColor="?android:textColorSecondary" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

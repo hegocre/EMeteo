@@ -47,7 +47,7 @@
     <string name="wind">Vent</string>
     <string name="loading">Carregant…</string>
     <string name="finder_no_data_available">No hi ha dades disponibles per al dia seleccionat.</string>
-    <string name="weather_no_data_available">No s\'han pogut carregar les dades.</string>
+    <string name="weather_no_data_available">No s\'han pogut carregar les dades</string>
     <string name="retry">Reintentar</string>
     <string name="quality">Qualitat</string>
     <string name="high">Alta</string>
