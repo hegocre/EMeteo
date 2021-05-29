@@ -24,11 +24,6 @@
         <item name="elevation">0dp</item>
     </style>
 
-    <style name="Theme.MaterialButton" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">@color/colorBackgroundCardDark</item>
-        <item name="elevation">0dp</item>
-    </style>
-
     <style name="WeatherCard" parent="Base.CardView">
         <item name="cardElevation">0dp</item>
         <item name="cardBackgroundColor">@color/colorBackgroundCardDark</item>

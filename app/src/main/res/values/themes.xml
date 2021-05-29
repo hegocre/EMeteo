@@ -23,8 +23,6 @@
 
     <style name="Theme.AppBar" parent="ThemeOverlay.AppCompat.Dark" />
 
-    <style name="Theme.MaterialButton" parent="Widget.MaterialComponents.Button" />
-
     <style name="WeatherCard" parent="Widget.MaterialComponents.CardView">
         <item name="cardCornerRadius">8dp</item>
         <item name="android:layout_marginTop">8dp</item>

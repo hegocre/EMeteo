@@ -67,13 +67,11 @@
     <string name="finder_no_data_available">No data available for the selected day.</string>
     <string name="weather_no_data_available">Could not load data.</string>
     <string name="retry">Retry</string>
-
     <string name="widget_humidity" translatable="false">%1$d%%</string>
     <string name="widget_temperature" translatable="false">%1$.0fº</string>
     <string name="widget_wind_speed_kmh" translatable="false">%1$.0f Km/h</string>
     <string name="widget_wind_speed_ms" translatable="false">%1$.0f m/s</string>
     <string name="widget_wind_speed_mph" translatable="false">%1$.0f mph</string>
-    <string name="widget_rain" translatable="false">%1$.0f mm</string>
     <string name="quality">Quality</string>
     <string name="high">High</string>
     <string name="standard">Standard (recommended)</string>

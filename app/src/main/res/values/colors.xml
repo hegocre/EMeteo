@@ -21,10 +21,6 @@
 
     <color name="swipeRefreshBackgroundDark">#2E2E2E</color>
 
-    <color name="image_overlay">#A0000000</color>
-
-    <color name="transparent">#00FFFFFF</color>
-
     <color name="textColorPrimary">#DD000000</color>
     <color name="textColorPrimaryDark">#DDFFFFFF</color>
 </resources>
