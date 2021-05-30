@@ -177,7 +177,6 @@ class HomeActivity : BaseActivity() {
                 }
                 false
             }
-            multiSelect = false
         }
 
         actionBarDrawerToggle.isDrawerSlideAnimationEnabled = true
@@ -208,10 +207,10 @@ class HomeActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if (binding.root.isDrawerOpen(binding.slider))
-            binding.root.closeDrawer(binding.slider)
-        else
-            super.onBackPressed()
+        when {
+            binding.root.isDrawerOpen(binding.slider) -> binding.root.closeDrawer(binding.slider)
+            else -> super.onBackPressed()
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -316,11 +315,12 @@ class HomeActivity : BaseActivity() {
 
         dialogShowing = true
         liveViewDialog?.show()
-        playerView.post {
-            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            playerView.post {
                 liveViewDialog?.window?.setLayout(playerView.width - 40, playerView.height)
             }
         }
+
     }
 
     override fun onDestroy() {
