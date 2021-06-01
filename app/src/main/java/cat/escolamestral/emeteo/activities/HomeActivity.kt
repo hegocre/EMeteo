@@ -22,8 +22,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import cat.escolamestral.emeteo.R
 import cat.escolamestral.emeteo.databinding.ActivityHomeBinding
-import cat.escolamestral.emeteo.utils.ContextUtils
 import cat.escolamestral.emeteo.utils.PreferencesManager
+import cat.escolamestral.emeteo.utils.isDarkThemeOn
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -107,7 +107,7 @@ class HomeActivity : BaseActivity() {
             intArrayOf(-android.R.attr.state_enabled)
         )
         val colors =
-            if (ContextUtils.isDarkThemeOn(this)) intArrayOf(Color.WHITE) else intArrayOf(Color.BLACK)
+            if (isDarkThemeOn()) intArrayOf(Color.WHITE) else intArrayOf(Color.BLACK)
 
         //Outline provider for appbar, used to draw shadow. To remove shadow on charts fragment,
         //we set it's provider to null, and to restore shadow we restore this state

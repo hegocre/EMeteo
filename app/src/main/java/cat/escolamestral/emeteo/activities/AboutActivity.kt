@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import cat.escolamestral.emeteo.R
 import cat.escolamestral.emeteo.databinding.ActivityAboutBinding
-import cat.escolamestral.emeteo.utils.ContextUtils
+import cat.escolamestral.emeteo.utils.isDarkThemeOn
 import com.google.android.material.snackbar.Snackbar
 import de.psdev.licensesdialog.LicensesDialog
 
@@ -61,7 +61,7 @@ class AboutActivity : BaseActivity() {
         binding.buttonLicenses.setOnClickListener {
             LicensesDialog.Builder(this)
                 .setNotices(R.raw.notices)
-                .setEnableDarkMode(ContextUtils.isDarkThemeOn(this))
+                .setEnableDarkMode(isDarkThemeOn())
                 .build()
                 .show()
         }

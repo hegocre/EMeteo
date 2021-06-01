@@ -9,13 +9,12 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import cat.escolamestral.emeteo.R
 import cat.escolamestral.emeteo.databinding.FragmentWeatherBinding
-import cat.escolamestral.emeteo.utils.ContextUtils
 import cat.escolamestral.emeteo.utils.LineChartUtils
 import cat.escolamestral.emeteo.utils.PreferencesManager
 import cat.escolamestral.emeteo.utils.Weather
+import cat.escolamestral.emeteo.utils.isDarkThemeOn
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
-import kotlinx.coroutines.Runnable
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 
@@ -41,7 +40,7 @@ class WeatherFragment : Fragment() {
         binding.weatherLayout.visibility = View.GONE
 
         binding.swipeRefreshLayout.setOnRefreshListener { downloadData(); downloadCharts(null) }
-        if (ContextUtils.isDarkThemeOn(requireContext())) {
+        if (requireContext().isDarkThemeOn()) {
             binding.swipeRefreshLayout.setColorSchemeResources(R.color.colorSecondaryDark)
             binding.swipeRefreshLayout.setProgressBackgroundColorSchemeColor(
                 ContextCompat.getColor(requireContext(), R.color.swipeRefreshBackgroundDark)
@@ -95,7 +94,7 @@ class WeatherFragment : Fragment() {
 
         val dialog = AlertDialog.Builder(requireContext()).create()
 
-        val thread = Thread(Runnable {
+        val thread = Thread {
             val data: Document = try {
                 Jsoup.connect(CHARTS_URL)
                     .get()
@@ -110,7 +109,7 @@ class WeatherFragment : Fragment() {
                     openChart(type)
                 }
             }
-        })
+        }
         thread.start()
 
         if (type != null) {

@@ -24,13 +24,13 @@ class LineChartUtils {
             val dataSet = LineDataSet(entries, label)
             dataSet.color = ContextCompat.getColor(
                 context,
-                if (ContextUtils.isDarkThemeOn(context)) R.color.colorSecondaryDark else R.color.colorSecondary
+                if (context.isDarkThemeOn()) R.color.colorSecondaryDark else R.color.colorSecondary
             )
             dataSet.setDrawCircleHole(false)
             dataSet.setCircleColor(
                 ContextCompat.getColor(
                     context,
-                    if (ContextUtils.isDarkThemeOn(context)) R.color.colorSecondaryDark else R.color.colorSecondary
+                    if (context.isDarkThemeOn()) R.color.colorSecondaryDark else R.color.colorSecondary
                 )
             )
             dataSet.circleRadius = 1f
@@ -41,11 +41,11 @@ class LineChartUtils {
             chart.xAxis.position = XAxis.XAxisPosition.BOTTOM
             chart.xAxis.textColor = ContextCompat.getColor(
                 context,
-                if (ContextUtils.isDarkThemeOn(context)) R.color.textColorPrimaryDark else R.color.textColorPrimary
+                if (context.isDarkThemeOn()) R.color.textColorPrimaryDark else R.color.textColorPrimary
             )
             chart.axisLeft.textColor = ContextCompat.getColor(
                 context,
-                if (ContextUtils.isDarkThemeOn(context)) R.color.textColorPrimaryDark else R.color.textColorPrimary
+                if (context.isDarkThemeOn()) R.color.textColorPrimaryDark else R.color.textColorPrimary
             )
             chart.legend.isEnabled = false
             chart.description.text = ""
