@@ -8,7 +8,6 @@ import cat.escolamestral.emeteo.R
 import cat.escolamestral.emeteo.databinding.ActivityFinderBinding
 import cat.escolamestral.emeteo.utils.PreferencesManager
 import cat.escolamestral.emeteo.utils.Weather
-import kotlinx.coroutines.Runnable
 import org.jsoup.HttpStatusException
 import org.jsoup.Jsoup
 import org.jsoup.select.Elements
@@ -43,7 +42,7 @@ class FinderActivity : BaseActivity() {
     }
 
     private fun fetchData(year: Int, month: Int, dayOfMonth: Int) {
-        Thread(Runnable {
+        Thread {
             val url = String.format(
                 "http://infomet.am.ub.es/clima/sfl2/sf2%s%s.htm",
                 DecimalFormat("00").format(year - 2000).toString(),
@@ -66,7 +65,7 @@ class FinderActivity : BaseActivity() {
                     setData(Weather.parseElements(data))
                 }
             }
-        }).start()
+        }.start()
     }
 
     private fun setData(weather: Weather) {

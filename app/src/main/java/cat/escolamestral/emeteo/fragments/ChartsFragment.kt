@@ -15,7 +15,6 @@ import cat.escolamestral.emeteo.utils.PreferencesManager
 import cat.escolamestral.emeteo.utils.Weather
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
-import kotlinx.coroutines.Runnable
 import org.jsoup.Jsoup
 import java.text.DateFormatSymbols
 import java.util.*
@@ -68,7 +67,7 @@ class ChartsFragment : Fragment() {
     }
 
     private fun downloadData(url: String) {
-        Thread(Runnable {
+        Thread {
             val data: String = try {
                 Jsoup.connect(url)
                     .get().wholeText()
@@ -84,7 +83,7 @@ class ChartsFragment : Fragment() {
                     }
                 }
             }
-        }).start()
+        }.start()
     }
 
     private fun readHistoricYearData(data: String) {

@@ -71,7 +71,7 @@ class WeatherFragment : Fragment() {
     }
 
     private fun downloadData() {
-        Thread(Runnable {
+        Thread {
             val data: String = try {
                 Jsoup.connect(WEATHER_URL)
                     .get().body().html()
@@ -86,7 +86,7 @@ class WeatherFragment : Fragment() {
                     setData(Weather.parseString(data))
                 }
             }
-        }).start()
+        }.start()
     }
 
     private fun downloadCharts(type: Int?) {

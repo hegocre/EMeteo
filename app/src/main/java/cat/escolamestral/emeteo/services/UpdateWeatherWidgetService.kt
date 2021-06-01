@@ -43,7 +43,7 @@ class UpdateWeatherWidgetService : JobIntentService() {
 
         val allWidgetIds = i?.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS)
 
-        Thread(kotlinx.coroutines.Runnable {
+        Thread {
             val data = try {
                 Jsoup.connect(WEATHER_URL)
                     .get().body().html()
@@ -119,7 +119,7 @@ class UpdateWeatherWidgetService : JobIntentService() {
 
                 }
             }
-        }).start()
+        }.start()
 
         if (allWidgetIds != null) {
             for (widgetId in allWidgetIds) {
