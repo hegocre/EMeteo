@@ -201,11 +201,11 @@ class WeatherFragment : Fragment() {
 
         chartsData.wholeText().split("\n")
             .forEachIndexed { index, s ->
-                if (index > 3 && s.isNotEmpty()) {
+                if (index > 2 && s.isNotEmpty()) {
                     val value = s.trim().split(" +".toRegex())[type]
                     entries.add(
                         Entry(
-                            (index - 1).toFloat(),
+                            (index - 3).toFloat(),
                             when {
                                 value == "---" -> 0f
                                 type == TEMPERATURE -> Weather.celsiusToUnits(
