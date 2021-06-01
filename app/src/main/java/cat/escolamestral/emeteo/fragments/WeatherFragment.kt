@@ -200,10 +200,10 @@ class WeatherFragment : Fragment() {
         val entries = ArrayList<Entry>()
         val labels = ArrayList<String>()
 
-        chartsData.body().html().split("[0-9]{2}/[0-9]{2}/[0-9]{2}".toRegex())
+        chartsData.wholeText().split("\n")
             .forEachIndexed { index, s ->
-                if (index > 0) {
-                    val value = s.trim().split(" +".toRegex())[type - 1]
+                if (index > 3 && s.isNotEmpty()) {
+                    val value = s.trim().split(" +".toRegex())[type]
                     entries.add(
                         Entry(
                             (index - 1).toFloat(),
@@ -219,7 +219,7 @@ class WeatherFragment : Fragment() {
                             }
                         )
                     )
-                    labels.add(s.trim().split(" +".toRegex())[0])
+                    labels.add(s.trim().split(" +".toRegex())[1])
                 }
             }
 
