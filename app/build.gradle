@@ -8,8 +8,8 @@ android {
         applicationId "cat.escolamestral.emeteo"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 3030007
-        versionName "3.0.0_beta6"
+        versionCode 3030008
+        versionName "3.0.0_beta7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

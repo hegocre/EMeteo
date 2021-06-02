@@ -40,7 +40,7 @@
         <!-- MaterialDrawer specific values -->
         <item name="materialDrawerBackground">@color/colorBackground</item>
         <item name="materialDrawerPrimaryText">?android:textColorPrimary</item>
-        <item name="materialDrawerPrimaryIcon">?android:textColorSecondary</item>
+        <item name="materialDrawerPrimaryIcon">?android:textColorPrimary</item>
         <item name="materialDrawerSecondaryText">?android:textColorSecondary</item>
         <item name="materialDrawerSecondaryIcon">?android:textColorSecondary</item>
         <item name="materialDrawerDividerColor">?android:textColorHint</item>
