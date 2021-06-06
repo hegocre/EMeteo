@@ -102,6 +102,7 @@ class FinderActivity : BaseActivity() {
         AlertDialog.Builder(this)
             .setTitle(R.string.finder_no_data_available)
             .setPositiveButton(android.R.string.ok) { _, _ -> finish() }
+            .setOnCancelListener { finish() }
             .show()
     }
 

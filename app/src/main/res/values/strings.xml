@@ -51,8 +51,8 @@
     <string name="weather_wind_speed_kmh" translatable="false">%1$.1f Km/h</string>
     <string name="weather_wind_speed_ms" translatable="false">%1$.1f m/s</string>
     <string name="weather_wind_speed_mph" translatable="false">%1$.1f mph</string>
-    <string name="weather_temperature_min_max" translatable="false">▼%1$.1fº - ▲%2$.1fº</string>
-    <string name="weather_humidity_min_max" translatable="false">▼%1$d %% - ▲%2$d %%</string>
+    <string name="weather_temperature_min_max" translatable="false">▼ %1$.1fº - ▲ %2$.1fº</string>
+    <string name="weather_humidity_min_max" translatable="false">▼ %1$d %% - ▲ %2$d %%</string>
     <string name="weather_rain" translatable="false">%1$.1f mm</string>
     <string name="weather_updated">Updated: %1$s</string>
     <string name="tab_monthly">This month</string>

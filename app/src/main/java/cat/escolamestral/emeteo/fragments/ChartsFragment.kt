@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import cat.escolamestral.emeteo.R
@@ -13,6 +14,7 @@ import cat.escolamestral.emeteo.databinding.FragmentChartsBinding
 import cat.escolamestral.emeteo.utils.ChartData
 import cat.escolamestral.emeteo.utils.PreferencesManager
 import cat.escolamestral.emeteo.utils.Weather
+import cat.escolamestral.emeteo.utils.isDarkThemeOn
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import org.jsoup.Jsoup
@@ -52,6 +54,13 @@ class ChartsFragment : Fragment() {
     private fun setupTabs() {
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText(R.string.tab_monthly))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText(R.string.tab_yearly))
+
+        binding.tabLayout.setSelectedTabIndicatorColor(
+            ContextCompat.getColor(
+                requireContext(),
+                if (requireContext().isDarkThemeOn()) R.color.colorSecondaryDark else R.color.white
+            )
+        )
 
         binding.chartsPager.adapter =
             ViewPagerAdapter(binding.root, arrayOf(R.id.month_charts, R.id.year_charts))
