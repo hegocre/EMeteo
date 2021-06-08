@@ -41,11 +41,11 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <LinearLayout
+                        android:id="@+id/weather_layout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:id="@+id/weather_layout"
                         android:padding="16dp">
 
                         <LinearLayout
@@ -282,10 +282,10 @@
 
         <Button
             android:id="@+id/no_connection_button"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="?selectableItemBackground"
             android:text="@string/retry"
             android:textColor="?android:textColorSecondary" />
 

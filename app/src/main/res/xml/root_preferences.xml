@@ -54,13 +54,13 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
+            app:allowDividerBelow="false"
             app:defaultValue="km_h"
             app:entries="@array/wind_units_entries"
             app:entryValues="@array/wind_units_values"
             app:iconSpaceReserved="false"
             app:key="wind_units"
             app:title="@string/wind_units"
-            app:allowDividerBelow="false"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
