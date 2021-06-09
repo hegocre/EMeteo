@@ -242,6 +242,11 @@ class WeatherFragment : Fragment() {
     }
 
     private fun showNoDataDialog() {
+        //Prevent null pointer exception when accessing binding when
+        // rotating screen while initializing activity
+        if (_binding == null)
+            return
+
         binding.swipeRefreshLayout.isRefreshing = false
         if (!dataLoaded) {
             binding.weatherLoading.visibility = View.GONE

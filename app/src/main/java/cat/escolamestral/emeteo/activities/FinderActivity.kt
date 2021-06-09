@@ -8,7 +8,6 @@ import cat.escolamestral.emeteo.R
 import cat.escolamestral.emeteo.databinding.ActivityFinderBinding
 import cat.escolamestral.emeteo.utils.PreferencesManager
 import cat.escolamestral.emeteo.utils.Weather
-import org.jsoup.HttpStatusException
 import org.jsoup.Jsoup
 import org.jsoup.select.Elements
 import java.text.DecimalFormat
@@ -49,16 +48,16 @@ class FinderActivity : BaseActivity() {
                 DecimalFormat("00").format(month).toString()
             )
 
-            val data: Elements = try {
+            val data: Elements? = try {
                 Jsoup.connect(url).get()
                     .select("table")[0].select("tr")[dayOfMonth + 3].select("td")
-            } catch (e: HttpStatusException) {
-                Elements()
+            } catch (e: Exception) {
+                null
             }
 
             runOnUiThread {
                 binding.weatherLoading.visibility = View.GONE
-                if (data.isEmpty() || data[2].text() == "-") {
+                if (data == null || data.isEmpty() || data[2].text() == "-") {
                     //No data was returned, or it is not filled yet
                     showNoDataDialog()
                 } else {
