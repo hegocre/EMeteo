@@ -43,7 +43,7 @@ class FinderActivity : BaseActivity() {
     private fun fetchData(year: Int, month: Int, dayOfMonth: Int) {
         Thread {
             val url = String.format(
-                "http://infomet.am.ub.es/clima/sfl2/sf2%s%s.htm",
+                "http://infomet.meteo.ub.edu/clima/sfl2/sf2%s%s.htm",
                 DecimalFormat("00").format(year - 2000).toString(),
                 DecimalFormat("00").format(month).toString()
             )
@@ -52,6 +52,7 @@ class FinderActivity : BaseActivity() {
                 Jsoup.connect(url).get()
                     .select("table")[0].select("tr")[dayOfMonth + 3].select("td")
             } catch (e: Exception) {
+                e.printStackTrace()
                 null
             }
 

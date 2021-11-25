@@ -2,6 +2,6 @@
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">escolamestral.cat</domain>
-        <domain includeSubdomains="true">ub.es</domain>
+        <domain includeSubdomains="true">infomet.meteo.ub.edu</domain>
     </domain-config>
 </network-security-config>
